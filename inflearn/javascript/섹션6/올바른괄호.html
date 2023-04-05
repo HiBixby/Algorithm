@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        // let answer = "YES";
+        // let stack = [];
+        // for(let i = 0; i<s.length;s++){
+        //     if(s[0]==="("){
+        //         stack.push(0);
+        //     }
+        //     else{
+        //         if(stack[stack.length-1]==="("){
+        //             stack.pop();
+        //         }
+        //     }
+        // }
+        // if(stack.length!==0) answer = "NO";
+        // return answer;
+        let answer = "YES";
+        let stack = [];
+        for (let x of s) {
+          if (x === "(") stack.push(x);
+          else {
+            if (stack.length === 0) return "NO";
+            stack.pop();
+          }
+        }
+        if (stack.length > 0) return "NO";
+        return answer;
+      }
+
+      let a = "(()(()))(()";
+      console.log(solution(a));
+    </script>
+  </body>
+</html>
+
+<!-- 닫는 괄호가 더 많은 경우를 생각하지 못했었다 -->
