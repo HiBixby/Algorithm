@@ -1,6 +1,5 @@
 function solution(board) {
   let answer = 0;
-  let visited = Array.from(Array(7), () => Array(7));
   let dx = [0, 0, -1, 1];
   let dy = [-1, 1, 0, 0];
   function DFS(x, y) {
@@ -14,14 +13,14 @@ function solution(board) {
       if (nx < 0 || nx >= 7 || ny < 0 || ny >= 7) {
         continue;
       }
-      if (!visited[nx][ny] && board[nx][ny] === 0) {
-        visited[nx][ny] = true;
+      if (board[nx][ny] === 0) {
+        board[nx][ny] = 1;
         DFS(nx, ny);
-        visited[nx][ny] = false;
+        board[nx][ny] = 0;
       }
     }
   }
-  visited[0][0] = 1;
+  board[0][0] = 1;
   DFS(0, 0);
   return answer;
 }
