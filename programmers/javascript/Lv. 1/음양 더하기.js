@@ -1,2 +1,2 @@
 const solution = (absolutes, signs) =>
-  absolutes.map((n, i) => (signs[i] ? n : -n)).reduce((a, b) => a + b);
+  absolutes.reduce((prev, curr, idx) => prev + (signs[idx] ? curr : -curr), 0);
