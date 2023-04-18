@@ -1,0 +1,1 @@
+solution = s => parseInt(s);
