@@ -1,4 +1,6 @@
 function solution(cacheSize, cities) {
+  const CACHE_HIT_TIME = 1;
+  const CACHE_MISS_TIME = 5;
   let cache = Array.from({ length: cacheSize });
   let total = 0;
   for (let city of cities) {
@@ -10,12 +12,12 @@ function solution(cacheSize, cities) {
         cache[j + 1] = cache[j];
       }
       cache[0] = city;
-      total++;
+      total += CACHE_HIT_TIME;
     } else {
       // cache miss
       cache.unshift(city);
       cache.pop();
-      total += 5;
+      total += CACHE_MISS_TIME;
     }
   }
   return total;
