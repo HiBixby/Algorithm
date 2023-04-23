@@ -8,7 +8,7 @@ const isCorrect = (s) => {
   s.forEach((e) => {
     console.log(stack);
     let l = stack[stack.length - 1];
-    if (bracket[e] !== undefined && stack[stack.length - 1] === bracket[e]) {
+    if (e in bracket && stack[stack.length - 1] === bracket[e]) {
       if (stack.length === 0) return false;
       stack.pop();
     } else {
