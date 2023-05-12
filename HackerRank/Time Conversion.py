@@ -16,18 +16,17 @@ import sys
 
 def timeConversion(s):
     # Write your code here
+    hour = int(s[:2]) % 12
     if s[-2:] == "PM":
-        hour = int(s[:2])+12
-        return str(hour)+s[2:-2]
+        return ("0"+str(hour+12))[-2:]+s[2:-2]
     else:
-        return s[:-2]
+        return ("0"+str(hour))[-2:]+s[2:-2]
 
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     s = input()
-
     result = timeConversion(s)
 
     fptr.write(result + '\n')
